@@ -22,7 +22,7 @@ const loginUser = async (req, res) => {
             return res.json({success:false, message:"User Not Exists"})
         }
 
-        const isMatch = await bcrypt.compare(password, user.password)
+        const isMatch = await bycrypt.compare(password, user.password)
 
         if (isMatch) {
             const token = createToken(user._id)
@@ -99,3 +99,4 @@ const adminLogin = async (req, res) => {
 
 
 export { loginUser, registerUser, adminLogin}
+
